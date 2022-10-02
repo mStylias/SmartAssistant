@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="SmartAssistant.WPF.Modules.Login.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.Login.Views"
+             xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+             xmlns:lottie="clr-namespace:LottieSharp.WPF;assembly=LottieSharp"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000"
+             d:Background="#363655"
+             FontFamily="{StaticResource InterRegular}">
+
+    <!--<UserControl.Resources>
+        <Color x:Key="ControlFillColorSecondary">#4184FF</Color>
+        
+    </UserControl.Resources>-->
+    
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=1000, Delay=100}">
+
+        <TextBlock Foreground="{StaticResource TextPrimaryBrush}"
+                   FontSize="24"
+                   Text="Hello! &#x0a;I am Tim, your personal smart assistant"></TextBlock>
+
+        <lottie:LottieAnimationView Width="200"
+                                    Height="150"
+                                    Margin="0,20,0,20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    AutoPlay="True"
+                                    FileName="Animations/robot_assistant.json"
+                                    RepeatCount="-1" />
+
+        <TextBlock Foreground="{StaticResource TextSecondaryBrush}"
+                   FontFamily="{StaticResource InterLight}"
+                   FontSize="18"> Sign in to continue</TextBlock>
+
+        <StackPanel xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=1000, Delay=600}">
+            <ui:TextBox Background="Transparent"
+                        BorderBrush="Transparent"
+                        PlaceholderText="Username"
+                        FontFamily="{StaticResource InterLight}"
+                        Margin="0,30,0,0" />
+
+            <ui:Button Icon="ArrowCircleRight24"
+                       Background="#5C87FF"
+                       HorizontalAlignment="Center"
+                       Margin="0,60,0,0"
+                       Content="Login"
+                       Cursor="Hand">
+                <ui:Button.Resources>
+                    <Color x:Key="ControlFillColorTertiary">#4184FF</Color>
+                    <Color x:Key="ControlFillColorSecondary">#4184FF</Color>
+                    <Color x:Key="ControlFillColorTertiaryBrush">#4184FF</Color>
+                    <Color x:Key="ControlFillColorSecondaryBrush">#4184FF</Color>
+                </ui:Button.Resources>
+            </ui:Button>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

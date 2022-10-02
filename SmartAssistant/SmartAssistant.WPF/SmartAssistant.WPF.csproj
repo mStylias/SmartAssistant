@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>robot (1).ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Animations\robot_assistant.json" />
+    <None Remove="Fonts\Inter\Inter-Black.ttf" />
+    <None Remove="Fonts\Inter\Inter-Bold.ttf" />
+    <None Remove="Fonts\Inter\Inter-ExtraBold.ttf" />
+    <None Remove="Fonts\Inter\Inter-ExtraLight.ttf" />
+    <None Remove="Fonts\Inter\Inter-Light.ttf" />
+    <None Remove="Fonts\Inter\Inter-Medium.ttf" />
+    <None Remove="Fonts\Inter\Inter-Regular.ttf" />
+    <None Remove="Fonts\Inter\Inter-SemiBold.ttf" />
+    <None Remove="Fonts\Inter\Inter-Thin.ttf" />
+    <None Remove="Images\Backgrounds\gradient.png" />
+    <None Remove="Images\Icons\robot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Animations\robot_assistant.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="robot (1).ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="LottieSharp" Version="2.0.1" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
+    <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartAssistant.Services\SmartAssistant.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fonts\Inter\Inter-Black.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-ExtraBold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-ExtraLight.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-Light.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-Medium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-SemiBold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter\Inter-Thin.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Backgrounds\gradient.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\robot.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+</Project>

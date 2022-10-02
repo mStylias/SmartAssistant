@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="InterRegular">pack://application:,,,/Fonts/Inter/#Inter Regular</FontFamily>
+    <FontFamily x:Key="InterMedium">pack://application:,,,/Fonts/Inter/#Inter Medium</FontFamily>
+    <FontFamily x:Key="InterLight">pack://application:,,,/Fonts/Inter/#Inter Light</FontFamily>
+    <FontFamily x:Key="InterSemiBold">pack://application:,,,/Fonts/Inter/#Inter SemiBold</FontFamily>
+    <FontFamily x:Key="InterBold">pack://application:,,,/Fonts/Inter/#Inter Bold</FontFamily>
+    
+
+</ResourceDictionary>
