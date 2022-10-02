@@ -1,7 +1,10 @@
-﻿namespace SmartAssistant.Services.UserAccount;
+﻿using SmartAssistant.Data.Models;
+
+namespace SmartAssistant.Services.UserAccount;
 
 public interface IUserAuthRepository
 {
-    Task<bool> Authenticate(string username, string password);
+    Task<User> GetLoggedInUser();
+    Task<bool> Login(string username, string password);
     Task<bool> Logout();
 }

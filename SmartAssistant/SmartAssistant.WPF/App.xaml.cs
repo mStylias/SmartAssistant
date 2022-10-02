@@ -26,8 +26,8 @@ public partial class App
 
     protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
     {
-        moduleCatalog.AddModule<LoginModule>();
         moduleCatalog.AddModule<MainRegionModule>();
+        moduleCatalog.AddModule<LoginModule>();
         base.ConfigureModuleCatalog(moduleCatalog);
     }
 }

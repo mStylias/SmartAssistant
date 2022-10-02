@@ -19,9 +19,15 @@ public static class Serializer
 
     public static async Task<T> DeserializeJsonFile<T>(string fileName)
     {
-        var jsonString = await File.ReadAllTextAsync(Path.Combine(SaveDirectory, fileName));
-        var stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
-        var result = await JsonSerializer.DeserializeAsync<T>(stream);
-        return result;
+        var filePath = Path.Combine(SaveDirectory, fileName);
+
+        if (File.Exists(filePath))
+        {
+            var jsonString = await File.ReadAllTextAsync(filePath);
+            var stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
+            return await JsonSerializer.DeserializeAsync<T>(stream);
+        }
+
+        return default(T);
     }
 }
