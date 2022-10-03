@@ -17,6 +17,15 @@
     <None Remove="Fonts\Inter\Inter-SemiBold.ttf" />
     <None Remove="Fonts\Inter\Inter-Thin.ttf" />
     <None Remove="Images\Backgrounds\gradient.png" />
+    <None Remove="Images\Icons\Menu\calendar.png" />
+    <None Remove="Images\Icons\Menu\calendar_selected.png" />
+    <None Remove="Images\Icons\Menu\dashboard.png" />
+    <None Remove="Images\Icons\Menu\dashboard_selected.png" />
+    <None Remove="Images\Icons\Menu\security.png" />
+    <None Remove="Images\Icons\Menu\security_selected.png" />
+    <None Remove="Images\Icons\Menu\smart_devices.png" />
+    <None Remove="Images\Icons\Menu\smart_devices_selected.png" />
+    <None Remove="Images\Icons\profile_picture.jpg" />
     <None Remove="Images\Icons\robot.png" />
   </ItemGroup>
   <ItemGroup>
@@ -66,8 +75,38 @@
     <Resource Include="Images\Backgrounds\gradient.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icons\Menu\calendar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\calendar_selected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\dashboard.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\dashboard_selected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\security.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\security_selected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\smart_devices.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\Menu\smart_devices_selected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\profile_picture.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icons\robot.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Events\" />
   </ItemGroup>
 </Project>

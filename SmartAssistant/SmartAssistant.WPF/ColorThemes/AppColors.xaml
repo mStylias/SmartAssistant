@@ -3,13 +3,17 @@
     
     <!-- Colors -->
     <Color x:Key="Primary">#2A2B42</Color>
-    <Color x:Key="PrimaryLight">#31314C</Color>
+    <Color x:Key="PrimaryLight">#363655</Color>
+    <Color x:Key="PrimaryLightBrighter">#3c3c5e</Color>
+    <Color x:Key="Secondary">#5C87FF</Color>
     <Color x:Key="TextPrimary">#EFEFFF</Color>
     <Color x:Key="TextSecondary">#9494C5</Color>
 
     <!-- Brushes -->
     <SolidColorBrush x:Key="PrimaryBrush">#2A2B42</SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryLightBrush">#31314C</SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryLightBrighterBrush">#3c3c5e</SolidColorBrush>
+    <SolidColorBrush x:Key="SecondaryBrush">#5C87FF</SolidColorBrush>
     <SolidColorBrush x:Key="TextPrimaryBrush">#EFEFFF</SolidColorBrush>
     <SolidColorBrush x:Key="TextSecondaryBrush">#9494C5</SolidColorBrush>
 </ResourceDictionary>

@@ -21,7 +21,11 @@ public class MainRegionModule : IModule
     public async void OnInitialized(IContainerProvider containerProvider)
     {
         if (await _authRepository.GetLoggedInUser() != null)
+        {
             _regionManager.RequestNavigate(RegionNames.MainWindowContentRegion, nameof(MainRegionView));
+            _regionManager.RequestNavigate(RegionNames.MainContentRegion, "DashboardView");
+        }
+            
     }
 
     public void RegisterTypes(IContainerRegistry containerRegistry)

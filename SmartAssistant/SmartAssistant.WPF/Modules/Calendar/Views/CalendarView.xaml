@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="SmartAssistant.WPF.Modules.Calendar.Views.CalendarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.Calendar.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000"
+             d:Background="#2A2B42">
+    <Grid>
+        <TextBlock> Calendar </TextBlock>
+    </Grid>
+</UserControl>

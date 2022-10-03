@@ -3,12 +3,124 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.MainRegion.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="700" 
+             d:DesignWidth="1000"
+             FontFamily="{StaticResource InterRegular}">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Themes/DashboardMenuButtonTheme.xaml" />
+                <ResourceDictionary Source="../../../Themes/CalendarMenuButtonTheme.xaml" />
+                <ResourceDictionary Source="../../../Themes/SmartDevicesMenuButtonTheme.xaml" />
+                <ResourceDictionary Source="../../../Themes/SecurityMenuButtonTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid d:Background="{StaticResource PrimaryBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation sidebar -->
+        <Grid Grid.Column="0"
+              Background="{StaticResource PrimaryLightBrush}"
+              xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromLeft}, Duration=550}">
+
+            <!-- Drop Shadow Effect -->
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="1.5"
+                                  Direction="330"
+                                  Color="Black"
+                                  Opacity="0.2"
+                                  BlurRadius="10" />
+            </Grid.Effect>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Smart assistant text section -->
+            <TextBlock Grid.Row="0" 
+                       Text="Smart Assistant"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource TextPrimaryBrush}"
+                       FontSize="16"
+                       Margin="0,15,0,0"/>
+            
+            <!-- Navigation Section-->
+            <StackPanel Grid.Row="1" 
+                        VerticalAlignment="Top">
+                
+                <RadioButton GroupName="MenuRadioButtons"
+                             Height="50"
+                             Padding="12,8,8,8"
+                             Content="Dashboard"
+                             FontSize="12"
+                             IsChecked="True"
+                             Foreground="{StaticResource TextPrimaryBrush}"
+                             Style="{StaticResource DashboardMenuButtonTheme}"
+                             Command="{Binding NavigateToDashboardCommand}"/>
+                <RadioButton GroupName="MenuRadioButtons"
+                             Height="50"
+                             Padding="12,8,8,8"
+                             Content="Calendar"
+                             FontSize="12"
+                             Foreground="{StaticResource TextPrimaryBrush}"
+                             Style="{StaticResource CalendarMenuButtonTheme}"
+                             Command="{Binding NavigateToCalendarCommand}" />
+                <RadioButton GroupName="MenuRadioButtons"
+                             Height="50"
+                             Padding="12,8,8,8"
+                             Content="Smart Devices"
+                             FontSize="12"
+                             Foreground="{StaticResource TextPrimaryBrush}"
+                             Style="{StaticResource SmartDevicesMenuButtonTheme}"
+                             Command="{Binding NavigateToSmartDevicesCommand}" />
+                <RadioButton GroupName="MenuRadioButtons"
+                             Height="50"
+                             Padding="12,8,8,8"
+                             Content="Security Cameras"
+                             FontSize="12"
+                             Foreground="{StaticResource TextPrimaryBrush}"
+                             Style="{StaticResource SecurityMenuButtonTheme}"
+                             Command="{Binding NavigateToSecurityCommand}" />
+            </StackPanel>
+            
+            <!-- Profile Section -->
+            <StackPanel Grid.Row="2"
+                        VerticalAlignment="Center">
+                <!-- Profile Picture -->
+                <Border Width="50" Height="50"
+                        CornerRadius="40,40,40,40">
+                    <Border.Background>
+                        <ImageBrush Stretch="UniformToFill"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                    RenderOptions.EdgeMode="Aliased"
+                                    ImageSource="/Images/Icons/profile_picture.jpg" />
+                    </Border.Background>
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.7"
+                                          BlurRadius="15" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            
+        </Grid>
         
+        <!-- Main content region -->
+        <ContentControl Grid.Column="1"
+                        prism:RegionManager.RegionName="MainContentRegion"/>
     </Grid>
 </UserControl>
