@@ -28,6 +28,8 @@ public partial class CalendarActivity : IComparable<CalendarActivity>
         TransportationMethod = transportMethod;
     }
 
+    public CalendarActivity() { }
+
     /// <summary>
     /// Compare Start Time of this instance with another activity
     /// </summary>

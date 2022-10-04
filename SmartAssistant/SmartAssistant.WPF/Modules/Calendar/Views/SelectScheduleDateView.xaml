@@ -13,6 +13,7 @@
              d:Background="#2A2B42">
     <StackPanel HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
+                Margin="0,0,0,100"
                 xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromLeft}, Duration=700}">
         <TextBlock Text="Select the date"
                    Foreground="{StaticResource TextPrimaryBrush}"

@@ -14,14 +14,14 @@
              d:Background="#2A2B42">
 
     <!-- Change material design colors -->
-    <UserControl.Resources>
+    <!--<UserControl.Resources>
         <SolidColorBrush x:Key="MaterialDesignTextBoxBorder"
                          Color="{StaticResource TextSecondary}" />
         <SolidColorBrush x:Key="PrimaryHueMidBrush"
                          Color="{StaticResource Secondary}" />
         <SolidColorBrush x:Key="MaterialDesignPaper"
                          Color="{StaticResource PrimaryLight}" />
-    </UserControl.Resources>
+    </UserControl.Resources>-->
 
     <!-- Main section -->
     <Grid>
@@ -43,29 +43,41 @@
                     </ResourceDictionary>
                 </StackPanel.Resources>
 
-                <TextBlock Text="Select the activity time"
-                           Foreground="{StaticResource TextPrimaryBrush}"
-                           FontSize="20" />
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <SolidColorBrush x:Key="MaterialDesignTextBoxBorder"
+                                         Color="{StaticResource TextSecondary}" />
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush"
+                                         Color="{StaticResource Secondary}" />
+                        <SolidColorBrush x:Key="MaterialDesignPaper"
+                                         Color="{StaticResource PrimaryLight}" />
+                    </StackPanel.Resources>
 
-                <TextBlock Text="Start Time"
-                           Foreground="{StaticResource TextSecondaryBrush}"
-                           FontFamily="{StaticResource InterLight}"
-                           FontSize="16"
-                           Margin="0,25,0,0" />
+                    <TextBlock Text="Select the activity time"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               FontSize="20" />
 
-                <materialDesign:TimePicker Foreground="{StaticResource TextSecondaryBrush}"
-                                           Margin="0,5,0,0"
-                                           SelectedTime="{Binding SelectedStartTime}" />
+                    <TextBlock Text="Start Time"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               FontFamily="{StaticResource InterLight}"
+                               FontSize="16"
+                               Margin="0,25,0,0" />
 
-                <TextBlock Text="End Time"
-                           Foreground="{StaticResource TextSecondaryBrush}"
-                           FontFamily="{StaticResource InterLight}"
-                           FontSize="16"
-                           Margin="0,25,0,0" />
+                    <materialDesign:TimePicker Foreground="{StaticResource TextSecondaryBrush}"
+                                               Margin="0,5,0,0"
+                                               SelectedTime="{Binding SelectedStartTime}" />
 
-                <materialDesign:TimePicker Foreground="{StaticResource TextSecondaryBrush}"
-                                           Margin="0,5,0,0"
-                                           SelectedTime="{Binding SelectedEndTime}" />
+                    <TextBlock Text="End Time"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               FontFamily="{StaticResource InterLight}"
+                               FontSize="16"
+                               Margin="0,25,0,0" />
+
+                    <materialDesign:TimePicker Foreground="{StaticResource TextSecondaryBrush}"
+                                               Margin="0,5,0,0"
+                                               SelectedTime="{Binding SelectedEndTime}" />
+                </StackPanel>
+                
             </StackPanel>
 
             <!-- Select if the activity is outside section -->

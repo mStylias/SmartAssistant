@@ -25,8 +25,6 @@ public class SelectScheduleDateViewModel : BindableBase, INavigationAware
 
     public SelectScheduleDateViewModel(IRegionManager regionManager)
     {
-        _selectedDate = DateTime.Now;
-
         _regionManager = regionManager;
 
         NavigateBackCommand = new DelegateCommand(NavigateBack);
@@ -45,12 +43,14 @@ public class SelectScheduleDateViewModel : BindableBase, INavigationAware
 
     private void NavigateBack()
     {
-        _journal.GoBack();
+        _regionManager.RequestNavigate(RegionNames.MainContentRegion, "MainCalendarView");
     }
 
+    // If it returns false a new view and viewmodel are created
+    // otherwise the existing ones are used
     public bool IsNavigationTarget(NavigationContext navigationContext)
     {
-        return true;
+        return NavigationState.CreatesNewViewsOnAddActivityPages == false;
     }
 
     public void OnNavigatedFrom(NavigationContext navigationContext)
@@ -65,6 +65,7 @@ public class SelectScheduleDateViewModel : BindableBase, INavigationAware
         if (navigationContext.Parameters.ContainsKey("activity"))
         {
             _activity = navigationContext.Parameters.GetValue<CalendarActivityDTO>("activity");
+            SelectedDate = _activity.Date;
         }
     }
 }

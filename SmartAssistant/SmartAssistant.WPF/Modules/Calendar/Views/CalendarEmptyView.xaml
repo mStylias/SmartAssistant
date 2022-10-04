@@ -9,35 +9,39 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.Calendar.Views"
              mc:Ignorable="d"
-             d:DesignHeight="670" d:DesignWidth="820"
+             d:DesignHeight="570" d:DesignWidth="820"
              d:Background="#2A2B42">
-    <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
-        <StackPanel HorizontalAlignment="Center">
-            <TextBlock Text="Your schedule hasn't been set yet"
+    <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}"
+          >
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,100">
+            <TextBlock Text="No schedule found for the selected day"
                        Foreground="{StaticResource TextPrimaryBrush}"
-                       FontSize="22" 
+                       FontSize="22"
                        Margin="0,30,0,0" />
 
             <TextBlock Text="press the button below to create a new schedule"
                        Foreground="{StaticResource TextSecondaryBrush}"
-                       FontSize="14" 
-                       Margin="0,5,0,0"/>
+                       FontSize="14"
+                       Margin="0,5,0,0" />
+
+            <ui:Button Background="{StaticResource SecondaryBrush}"
+                       HorizontalAlignment="Center"
+                       Content="Create Schedule"
+                       Width="180"
+                       Height="60"
+                       Margin="0,20,0,0"
+                       Cursor="Hand"
+                       Command="{Binding GoToSelectScheduleDateCommand}">
+
+                <ui:Button.Resources>
+                    <Color x:Key="ControlFillColorTertiary">#4184FF</Color>
+                    <Color x:Key="ControlFillColorSecondary">#4184FF</Color>
+                    <Color x:Key="ControlFillColorTertiaryBrush">#4184FF</Color>
+                    <Color x:Key="ControlFillColorSecondaryBrush">#4184FF</Color>
+                </ui:Button.Resources>
+            </ui:Button>
         </StackPanel>
-
-        <ui:Button Background="{StaticResource SecondaryBrush}"
-                   HorizontalAlignment="Center"
-                   Content="Create Schedule"
-                   Width="180"
-                   Height="60"
-                   Cursor="Hand"
-                   Command="{Binding NavigateToSelectScheduleDateCommand}">
-
-            <ui:Button.Resources>
-                <Color x:Key="ControlFillColorTertiary">#4184FF</Color>
-                <Color x:Key="ControlFillColorSecondary">#4184FF</Color>
-                <Color x:Key="ControlFillColorTertiaryBrush">#4184FF</Color>
-                <Color x:Key="ControlFillColorSecondaryBrush">#4184FF</Color>
-            </ui:Button.Resources>
-        </ui:Button>
     </Grid>
 </UserControl>

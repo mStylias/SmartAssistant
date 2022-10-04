@@ -17,6 +17,7 @@ public class CalendarRepository : ICalendarRepository
             calendarActivities = new Dictionary<string, SortedSet<CalendarActivity>>();
         }
 
+        _calendarData.ActivitiesByDate = calendarActivities;
         return calendarActivities;
     }
 
@@ -42,6 +43,11 @@ public class CalendarRepository : ICalendarRepository
 
     public async Task AddCalendarActivityAsync(CalendarActivity activity)
     {
+        if (_calendarData.ActivitiesByDate.Any() == false)
+        {
+            _calendarData.ActivitiesByDate = await GetAllCalendarActivitiesAsync();
+        }
+
         _calendarData.AddCalendarActivity(activity);
         await Serializer.SaveJsonToFile(CalendarActivitiesFileName, _calendarData.ActivitiesByDate);
     }

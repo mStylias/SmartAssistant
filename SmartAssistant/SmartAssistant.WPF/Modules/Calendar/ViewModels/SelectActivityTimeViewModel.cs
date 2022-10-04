@@ -4,6 +4,7 @@ using Prism.Regions;
 using SmartAssistant.Data.CustomExceptions;
 using SmartAssistant.Data.Models.Calendar;
 using SmartAssistant.Services.Calendar;
+using SmartAssistant.WPF.Core;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -36,7 +37,7 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
         }
     }
 
-    private bool _isActivityOutside = false;
+    private bool _isActivityOutside = true;
     public bool IsActivityOutside
     {
         get { return _isActivityOutside; }
@@ -99,8 +100,12 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
                     _tranportationMethod
                 );
 
-                Debug.WriteLine($"Name: {calendarActivity.Name}\nStartTime: {calendarActivity.StartDateTime}\nEndTime: {calendarActivity.EndDateTime}\nIsOutside: {calendarActivity.IsOutside}\nTransport: {calendarActivity.TransportationMethod}");
-                // await _calendarRepository.AddCalendarActivityAsync(calendarActivity);
+                // Debug.WriteLine($"Name: {calendarActivity.Name}\nStartTime: {calendarActivity.StartDateTime}\nEndTime: {calendarActivity.EndDateTime}\nIsOutside: {calendarActivity.IsOutside}\nTransport: {calendarActivity.TransportationMethod}");
+                await _calendarRepository.AddCalendarActivityAsync(calendarActivity);
+
+                NavigationParameters param = new NavigationParameters();
+                param.Add("activity", _activity);
+                _regionManager.RequestNavigate(RegionNames.MainContentRegion, "ActivityAddedSuccessfullyView", param);
             }
             catch (InvalidDataException)
             {
@@ -121,7 +126,6 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
         return _selectedStartTime.HasValue && _selectedEndTime.HasValue;
     }
 
-
     private void NavigateBack()
     {
         _journal.GoBack();
@@ -129,7 +133,7 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
 
     public bool IsNavigationTarget(NavigationContext navigationContext)
     {
-        return true;
+        return false;
     }
 
     public void OnNavigatedFrom(NavigationContext navigationContext)
