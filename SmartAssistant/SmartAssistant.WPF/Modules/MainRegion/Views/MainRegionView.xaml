@@ -29,8 +29,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <!-- Navigation sidebar -->
         <Grid Grid.Column="0"
+              Grid.RowSpan="2"
               Background="{StaticResource PrimaryLightBrush}"
               xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromLeft}, Duration=550}">
 
@@ -121,6 +127,7 @@
         
         <!-- Main content region -->
         <ContentControl Grid.Column="1"
+                        Grid.Row="1"
                         prism:RegionManager.RegionName="MainContentRegion"/>
     </Grid>
 </UserControl>

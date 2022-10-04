@@ -6,14 +6,21 @@
     <Color x:Key="PrimaryLight">#363655</Color>
     <Color x:Key="PrimaryLightBrighter">#3c3c5e</Color>
     <Color x:Key="Secondary">#5C87FF</Color>
+    <Color x:Key="SecondaryLighter">#4184FF</Color>
     <Color x:Key="TextPrimary">#EFEFFF</Color>
-    <Color x:Key="TextSecondary">#9494C5</Color>
+    <Color x:Key="TextSecondary">#bbbbda</Color>
 
     <!-- Brushes -->
-    <SolidColorBrush x:Key="PrimaryBrush">#2A2B42</SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryLightBrush">#31314C</SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryLightBrighterBrush">#3c3c5e</SolidColorBrush>
-    <SolidColorBrush x:Key="SecondaryBrush">#5C87FF</SolidColorBrush>
-    <SolidColorBrush x:Key="TextPrimaryBrush">#EFEFFF</SolidColorBrush>
-    <SolidColorBrush x:Key="TextSecondaryBrush">#9494C5</SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryBrush" 
+                     Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="PrimaryLightBrush"
+                     Color="{StaticResource PrimaryLight}" />
+    <SolidColorBrush x:Key="PrimaryLightBrighterBrush"
+                     Color="{StaticResource PrimaryLightBrighter}" />
+    <SolidColorBrush x:Key="SecondaryBrush"
+                     Color="{StaticResource Secondary}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush"
+                     Color="{StaticResource TextPrimary}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush"
+                     Color="{StaticResource TextSecondary}" />
 </ResourceDictionary>

@@ -1,5 +1,4 @@
-﻿using SmartAssistant.Data.CustomExceptions;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace SmartAssistant.Data.Models.Calendar;
 
@@ -9,13 +8,15 @@ public partial class CalendarActivity : IComparable<CalendarActivity>
     public string StartingDayName { get => StartDateTime.ToString("dddd", CultureInfo.CreateSpecificCulture("en-US")); }
     public DateTime StartDateTime { get; set; }
     public DateTime EndDateTime { get; set; }
+    public bool IsOutside { get; set; }
+    public string TransportationMethod { get; set; }
 
-    private bool AreTimesValid(DateTime startDateTime, DateTime endDateTime)
+    public bool AreTimesValid(DateTime startDateTime, DateTime endDateTime)
     {
         return DateTime.Compare(startDateTime, endDateTime) < 0;
     }
 
-    public CalendarActivity(string name, DateTime startDateTime, DateTime endDateTime)
+    public CalendarActivity(string name, DateTime startDateTime, DateTime endDateTime, bool isOutside = true, string transportMethod = "None")
     {
         if (AreTimesValid(startDateTime, endDateTime) == false)
             throw new InvalidDataException("Start time must always be lesser than end time in activities!");
@@ -23,6 +24,8 @@ public partial class CalendarActivity : IComparable<CalendarActivity>
         Name = name;
         StartDateTime = startDateTime;
         EndDateTime = endDateTime;
+        IsOutside = isOutside;
+        TransportationMethod = transportMethod;
     }
 
     /// <summary>

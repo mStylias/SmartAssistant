@@ -16,7 +16,6 @@
     <None Remove="Fonts\Inter\Inter-Regular.ttf" />
     <None Remove="Fonts\Inter\Inter-SemiBold.ttf" />
     <None Remove="Fonts\Inter\Inter-Thin.ttf" />
-    <None Remove="Images\Backgrounds\gradient.png" />
     <None Remove="Images\Icons\Menu\calendar.png" />
     <None Remove="Images\Icons\Menu\calendar_selected.png" />
     <None Remove="Images\Icons\Menu\dashboard.png" />
@@ -36,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LottieSharp" Version="2.0.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
@@ -70,9 +70,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Fonts\Inter\Inter-Thin.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Backgrounds\gradient.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icons\Menu\calendar.png">

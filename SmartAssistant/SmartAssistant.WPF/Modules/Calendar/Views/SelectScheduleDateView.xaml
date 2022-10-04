@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="SmartAssistant.WPF.Modules.Calendar.Views.SelectScheduleDateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.Calendar.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="670" d:DesignWidth="820"
+             d:Background="#2A2B42">
+    <StackPanel HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeInAndSlideFromLeft}, Duration=700}">
+        <TextBlock Text="Select the date"
+                   Foreground="{StaticResource TextPrimaryBrush}"
+                   FontSize="20"/>
+        
+        <DatePicker Margin="0,15,0,0"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    SelectedDate="{Binding SelectedDate}"/>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#4184FF</Color>
+                <Color x:Key="ControlFillColorSecondary">#4184FF</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#4184FF</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#4184FF</Color>
+            </StackPanel.Resources>
+            
+            <ui:Button Background="{StaticResource SecondaryBrush}"
+                       HorizontalAlignment="Center"
+                       Content="Back"
+                       Width="120"
+                       Height="40"
+                       Margin="0,20,0,0"
+                       Cursor="Hand"
+                       Command="{Binding NavigateBackCommand}" />
+            <ui:Button Background="{StaticResource SecondaryBrush}"
+                       HorizontalAlignment="Center"
+                       Content="Continue"
+                       Width="120"
+                       Height="40"
+                       Margin="10,20,0,0"
+                       Cursor="Hand"
+                       Command="{Binding ContinueToSelectActivityCommand}" />
+        </StackPanel>
+        
+    </StackPanel>
+</UserControl>

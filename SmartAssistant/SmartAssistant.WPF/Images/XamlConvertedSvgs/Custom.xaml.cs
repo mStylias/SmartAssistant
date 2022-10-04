@@ -13,13 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartAssistant.WPF.Modules.Calendar.Views;
+namespace SmartAssistant.WPF.Images.XamlConvertedSvgs;
 /// <summary>
-/// Interaction logic for CalendarView.xaml
+/// Interaction logic for Custom.xaml
 /// </summary>
-public partial class CalendarView : UserControl
+public partial class Custom : UserControl
 {
-    public CalendarView()
+    public Custom()
     {
         InitializeComponent();
     }

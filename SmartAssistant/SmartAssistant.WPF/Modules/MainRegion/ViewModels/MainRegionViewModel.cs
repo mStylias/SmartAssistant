@@ -30,7 +30,7 @@ public class MainRegionViewModel : BindableBase
 
     private void NavigateToCalendar()
     {
-        _regionManager.RequestNavigate(RegionNames.MainContentRegion, "CalendarView");
+        _regionManager.RequestNavigate(RegionNames.MainContentRegion, "CalendarEmptyView");
     }
 
     private void NavigateToSmartDevices()

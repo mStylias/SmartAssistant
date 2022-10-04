@@ -13,6 +13,9 @@ public class CalendarModule : IModule
 
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
-        containerRegistry.RegisterForNavigation<CalendarView>();
+        containerRegistry.RegisterForNavigation<CalendarEmptyView>();
+        containerRegistry.RegisterForNavigation<SelectScheduleDateView>();
+        containerRegistry.RegisterForNavigation<SelectActivityView>();
+        containerRegistry.RegisterForNavigation<SelectActivityTimeView>();
     }
 }

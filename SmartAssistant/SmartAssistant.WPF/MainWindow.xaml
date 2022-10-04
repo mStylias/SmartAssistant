@@ -19,17 +19,14 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar 
-            Grid.Row="0"
-            MinimizeToTray="False"
-            ShowHelp="False"
-            ShowClose="True"
-            ShowMaximize="True"
-            ShowMinimize="True"
-            UseSnapLayout="True"
-            Panel.ZIndex="1000">
-            
-        </ui:TitleBar>
+        <ui:TitleBar Grid.Row="0"
+                     MinimizeToTray="False"
+                     ShowHelp="False"
+                     ShowClose="True"
+                     ShowMaximize="True"
+                     ShowMinimize="True"
+                     UseSnapLayout="True"
+                     Panel.ZIndex="1000" />
 
         <ContentControl
             Grid.Row="0"
