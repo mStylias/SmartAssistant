@@ -11,7 +11,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="670" d:DesignWidth="820"
              d:Background="#2A2B42">
-    <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
@@ -37,7 +37,7 @@
         <ui:Button Grid.Row="0"
                    Background="{StaticResource SecondaryBrush}"
                    HorizontalAlignment="Right"
-                   Content="Create new schedule"
+                   Content="Add activities"
                    Width="190"
                    Height="55"
                    Margin="0,0,50,0"

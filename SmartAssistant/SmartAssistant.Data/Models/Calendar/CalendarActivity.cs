@@ -8,6 +8,9 @@ public partial class CalendarActivity : IComparable<CalendarActivity>
     public string StartingDayName { get => StartDateTime.ToString("dddd", CultureInfo.CreateSpecificCulture("en-US")); }
     public DateTime StartDateTime { get; set; }
     public DateTime EndDateTime { get; set; }
+    public string ShortDate { get => StartDateTime.ToShortDateString(); }
+    public string ShortStartTime { get => StartDateTime.ToShortTimeString(); }
+    public string ShortEndTime { get => EndDateTime.ToShortTimeString(); }
     public bool IsOutside { get; set; }
     public string TransportationMethod { get; set; }
 

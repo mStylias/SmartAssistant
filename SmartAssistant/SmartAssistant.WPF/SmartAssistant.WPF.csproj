@@ -26,6 +26,7 @@
     <None Remove="Images\Icons\Menu\smart_devices_selected.png" />
     <None Remove="Images\Icons\profile_picture.jpg" />
     <None Remove="Images\Icons\robot.png" />
+    <None Remove="Images\map.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Animations\robot_assistant.json">
@@ -100,6 +101,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icons\robot.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\map.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

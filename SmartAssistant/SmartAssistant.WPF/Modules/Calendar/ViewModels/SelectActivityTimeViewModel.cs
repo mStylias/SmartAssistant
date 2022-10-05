@@ -8,6 +8,7 @@ using SmartAssistant.WPF.Core;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Windows;
 
 namespace SmartAssistant.WPF.Modules.Calendar.ViewModels;
 
@@ -15,6 +16,7 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
 {
     CalendarActivityDTO _activity;
 
+    #region Observable Properties
     private DateTime? _selectedStartTime;
     public DateTime? SelectedStartTime
     {
@@ -65,6 +67,33 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
         set { SetProperty(ref _showTimeOverlapError, value); }
     }
 
+    private bool _isActivityCustom = false;
+    public bool IsActivityCustom
+    {
+        get { return _isActivityCustom; }
+        set 
+        { 
+            SetProperty(ref _isActivityCustom, value);
+            if (value) { CustomActivityNameVisibility = Visibility.Visible; }
+            else { CustomActivityNameVisibility = Visibility.Collapsed; }
+        }
+    }
+
+    private string _customActivityName = "";
+    public string CustomActivityName
+    {
+        get { return _customActivityName; }
+        set { SetProperty(ref _customActivityName, value); }
+    }
+
+    private Visibility _customActivityNameVisibility = Visibility.Collapsed;
+    public Visibility CustomActivityNameVisibility
+    {
+        get { return _customActivityNameVisibility; }
+        set { SetProperty(ref _customActivityNameVisibility, value); }
+    }
+    #endregion
+
     private readonly ICalendarRepository _calendarRepository;
     private readonly IRegionManager _regionManager;
     private IRegionNavigationJournal _journal;
@@ -82,48 +111,61 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
 
     private async void AddActivity()
     {
-        if (_selectedStartTime.HasValue && _selectedEndTime.HasValue)
+        if (CanAddActivity() == false)
+            return;
+
+        if (IsActivityCustom)
         {
-            _activity.StartTime = _selectedStartTime.Value;
-            _activity.EndTime = _selectedEndTime.Value;
-
-            try
-            {
-                CalendarActivity calendarActivity = new CalendarActivity
-                (
-                    _activity.Name,
-                    new DateTime(_activity.Date.Year, _activity.Date.Month, _activity.Date.Day,
-                                    _activity.StartTime.Hour, _activity.StartTime.Minute, _activity.StartTime.Second),
-                    new DateTime(_activity.Date.Year, _activity.Date.Month, _activity.Date.Day,
-                                    _activity.EndTime.Hour, _activity.EndTime.Minute, _activity.EndTime.Second),
-                    _isActivityOutside,
-                    _tranportationMethod
-                );
-
-                // Debug.WriteLine($"Name: {calendarActivity.Name}\nStartTime: {calendarActivity.StartDateTime}\nEndTime: {calendarActivity.EndDateTime}\nIsOutside: {calendarActivity.IsOutside}\nTransport: {calendarActivity.TransportationMethod}");
-                await _calendarRepository.AddCalendarActivityAsync(calendarActivity);
-
-                NavigationParameters param = new NavigationParameters();
-                param.Add("activity", _activity);
-                _regionManager.RequestNavigate(RegionNames.MainContentRegion, "ActivityAddedSuccessfullyView", param);
-            }
-            catch (InvalidDataException)
-            {
-                ShowInvalidTimeError = true;
-                ShowTimeOverlapError = false;
-            }
-            catch (TimeOverlapException)
-            {
-                ShowInvalidTimeError = false;
-                ShowTimeOverlapError = true;
-            }
+            _activity.Name = _customActivityName;
         }
 
+        _activity.StartTime = _selectedStartTime.Value;
+        _activity.EndTime = _selectedEndTime.Value;
+
+        try
+        {
+            CalendarActivity calendarActivity = new CalendarActivity
+            (
+                _activity.Name,
+                new DateTime(_activity.Date.Year, _activity.Date.Month, _activity.Date.Day,
+                                _activity.StartTime.Hour, _activity.StartTime.Minute, _activity.StartTime.Second),
+                new DateTime(_activity.Date.Year, _activity.Date.Month, _activity.Date.Day,
+                                _activity.EndTime.Hour, _activity.EndTime.Minute, _activity.EndTime.Second),
+                _isActivityOutside,
+                _tranportationMethod
+            );
+      
+            await _calendarRepository.AddCalendarActivityAsync(calendarActivity);
+
+            NavigationParameters param = new NavigationParameters();
+            param.Add("activity", _activity);
+            _regionManager.RequestNavigate(RegionNames.MainContentRegion, "ActivityAddedSuccessfullyView", param);
+        }
+        catch (InvalidDataException)
+        {
+            ShowInvalidTimeError = true;
+            ShowTimeOverlapError = false;
+        }
+        catch (TimeOverlapException)
+        {
+            ShowInvalidTimeError = false;
+            ShowTimeOverlapError = true;
+        }
     }
 
     private bool CanAddActivity()
     {
-        return _selectedStartTime.HasValue && _selectedEndTime.HasValue;
+        if (IsActivityCustom && string.IsNullOrEmpty(CustomActivityName))
+        {
+            return false;
+        }
+
+        if (_selectedStartTime.HasValue && _selectedEndTime.HasValue == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private void NavigateBack()
@@ -148,7 +190,11 @@ public class SelectActivityTimeViewModel : BindableBase, INavigationAware
         if (navigationContext.Parameters.ContainsKey("activity"))
         {
             _activity = navigationContext.Parameters.GetValue<CalendarActivityDTO>("activity");
-            Debug.WriteLine($"Name: {_activity.Name}\nDate: {_activity.Date}");
+            
+            if (_activity.Name == "Custom")
+            {
+                IsActivityCustom = true;
+            }
         }
     }
 }

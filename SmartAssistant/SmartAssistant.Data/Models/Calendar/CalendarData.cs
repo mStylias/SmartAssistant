@@ -56,7 +56,7 @@ public class CalendarData
             return ActivitiesByDate[date];
         }
 
-        throw new InvalidOperationException("No activities found in the given day");
+        return null;
     }
 
     /// <summary>
@@ -68,8 +68,6 @@ public class CalendarData
     {
         var activity = ActivitiesByDate[dateTime.ToShortDateString()]
             .FirstOrDefault(x => DateTime.Compare(x.StartDateTime, dateTime) == 0);
-
-        if (activity == null) throw new InvalidOperationException("No activity with the given DateTime was found");
 
         return activity;
     }
@@ -92,10 +90,6 @@ public class CalendarData
             {
                 ActivitiesByDate.Remove(date);
             }
-        }
-        else
-        {
-            throw new InvalidOperationException("Can't delete an activity that doesn't exist");
         }
     }
 }

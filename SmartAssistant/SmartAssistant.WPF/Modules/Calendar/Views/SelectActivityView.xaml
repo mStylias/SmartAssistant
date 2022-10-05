@@ -111,7 +111,7 @@
                          Margin="30,0" 
                          Style="{StaticResource DrivingSchoolActivityTheme}"
                          Command="{Binding SelectActivityCommand}"
-                         CommandParameter="DrivingSchool"/>
+                         CommandParameter="Driving School"/>
             
             <!-- Custom Activity -->
             <RadioButton Grid.Row="2"
