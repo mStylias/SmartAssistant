@@ -14,5 +14,11 @@ public class SmartDevicesModule : IModule
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
         containerRegistry.RegisterForNavigation<SmartDevicesView>();
+
+        containerRegistry.RegisterForNavigation<LightsView>();
+        containerRegistry.RegisterForNavigation<ThermostatView>();
+        containerRegistry.RegisterForNavigation<AirConditionerView>();
+        containerRegistry.RegisterForNavigation<SmartShoerackView>();
+        containerRegistry.RegisterForNavigation<SmartFeederView>();
     }
 }

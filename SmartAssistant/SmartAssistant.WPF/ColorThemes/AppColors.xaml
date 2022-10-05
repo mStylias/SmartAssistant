@@ -7,8 +7,12 @@
     <Color x:Key="PrimaryLightBrighter">#3c3c5e</Color>
     <Color x:Key="Secondary">#5C87FF</Color>
     <Color x:Key="SecondaryLighter">#4184FF</Color>
+    <Color x:Key="Tertiary">#785BEC</Color>
     <Color x:Key="TextPrimary">#EFEFFF</Color>
     <Color x:Key="TextSecondary">#bbbbda</Color>
+
+    <Color x:Key="NegativeColor">#F95164</Color>
+    <Color x:Key="PositiveColor">#61BF78</Color>
 
     <!-- Brushes -->
     <SolidColorBrush x:Key="PrimaryBrush" 
@@ -19,8 +23,17 @@
                      Color="{StaticResource PrimaryLightBrighter}" />
     <SolidColorBrush x:Key="SecondaryBrush"
                      Color="{StaticResource Secondary}" />
+    <SolidColorBrush x:Key="SecondaryLighterBrush"
+                     Color="{StaticResource SecondaryLighter}" />
+    <SolidColorBrush x:Key="TertiaryBrush"
+                     Color="{StaticResource Tertiary}" />
     <SolidColorBrush x:Key="TextPrimaryBrush"
                      Color="{StaticResource TextPrimary}" />
     <SolidColorBrush x:Key="TextSecondaryBrush"
                      Color="{StaticResource TextSecondary}" />
+
+    <SolidColorBrush x:Key="NegativeColorBrush"
+                     Color="{StaticResource NegativeColor}" />
+    <SolidColorBrush x:Key="PositiveColorBrush"
+                     Color="{StaticResource PositiveColor}" />
 </ResourceDictionary>

@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="SmartAssistant.WPF.Modules.MainRegion.Views.MainRegionView"
+             x:Name="MainRegionUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +7,10 @@
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.MainRegion.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:mvvmhelpers="clr-namespace:SmartAssistant.WPF.Core.MvvmHelpers"
              mc:Ignorable="d" 
              d:DesignHeight="700" 
              d:DesignWidth="1000"
@@ -24,6 +28,11 @@
     </UserControl.Resources>
     
     <Grid d:Background="{StaticResource PrimaryBrush}">
+
+        <Grid.Resources>
+            <mvvmhelpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
+        </Grid.Resources>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180" />
             <ColumnDefinition Width="*" />
@@ -103,17 +112,54 @@
             </StackPanel>
             
             <!-- Profile Section -->
-            <StackPanel Grid.Row="2"
-                        VerticalAlignment="Center">
+            <Grid Grid.Row="2">
                 <!-- Profile Picture -->
                 <Border Width="50" Height="50"
-                        CornerRadius="40,40,40,40">
+                        CornerRadius="40,40,40,40"
+                        Cursor="Hand"
+                        x:Name="BorderProfile">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDown">
+                            <i:CallMethodAction TargetObject="{Binding}"
+                                                MethodName="HideProfileNotification" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    
                     <Border.Background>
                         <ImageBrush Stretch="UniformToFill"
                                     RenderOptions.BitmapScalingMode="NearestNeighbor"
                                     RenderOptions.EdgeMode="Aliased"
                                     ImageSource="/Images/Icons/profile_picture.jpg" />
                     </Border.Background>
+
+                    <Border.ContextMenu>
+                        <ContextMenu x:Name="ProfileContextMenu">
+                            <MenuItem Header="Open notification"
+                                      Command="{Binding Source={StaticResource Proxy}, Path=Data.OpenNotificationCommand}"/>
+                            <MenuItem Header="Logout"
+                                      Command="{Binding Source={StaticResource Proxy}, Path=Data.LogoutUserCommand}" />
+                        </ContextMenu>
+                    </Border.ContextMenu>
+
+                    <Border.Triggers>
+                        <EventTrigger SourceName="BorderProfile"
+                                      RoutedEvent="Border.MouseDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ProfileContextMenu"
+                                                                   Storyboard.TargetProperty="(ContextMenu.IsOpen)">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <sys:Boolean>True</sys:Boolean>
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Border.Triggers>
+
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0"
                                           Color="Black"
@@ -121,7 +167,17 @@
                                           BlurRadius="15" />
                     </Border.Effect>
                 </Border>
-            </StackPanel>
+                
+                <!-- Notification sign -->
+                <Canvas Width="12" 
+                        Height="12"
+                        Margin="33,0,0,33"
+                        Visibility="{Binding ProfileNotificationVisibility}">
+                    <Ellipse Width="12"
+                             Height="12" 
+                             Fill="{StaticResource NegativeColorBrush}"/>
+                </Canvas>
+            </Grid>
             
         </Grid>
         

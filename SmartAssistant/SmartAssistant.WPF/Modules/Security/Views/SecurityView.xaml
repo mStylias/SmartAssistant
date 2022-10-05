@@ -11,6 +11,56 @@
              d:DesignHeight="700" d:DesignWidth="1000"
              d:Background="#2A2B42">
     <Grid>
-        <TextBlock> Security</TextBlock>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1" 
+                   Text="Security Cameras"
+                   Foreground="{StaticResource TextPrimaryBrush}"
+                   FontSize="20" 
+                   HorizontalAlignment="Center"
+                   Margin="0,30,0,0"/>
+
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                BorderBrush="{StaticResource PrimaryLightBrush}"
+                BorderThickness="3">
+
+            <MediaElement Name="myMediaElement" Stretch="Fill">
+                <MediaElement.Triggers>
+                    <EventTrigger RoutedEvent="MediaElement.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <MediaTimeline Source="Videos/security_cameras.mp4"
+                                                   Storyboard.TargetName="myMediaElement"
+                                                   RepeatBehavior="Forever" 
+                                                   />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MediaElement.Triggers>
+            </MediaElement>
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="Black"
+                                  Opacity="0.8"
+                                  BlurRadius="15" />
+            </Border.Effect>
+        </Border>
+        
     </Grid>
 </UserControl>

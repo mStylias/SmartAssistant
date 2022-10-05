@@ -27,12 +27,24 @@
     <None Remove="Images\Icons\profile_picture.jpg" />
     <None Remove="Images\Icons\robot.png" />
     <None Remove="Images\map.png" />
+    <None Remove="Images\SmartDevicesMenu\air_conditioner.png" />
+    <None Remove="Images\SmartDevicesMenu\lamp_menu.png" />
+    <None Remove="Images\SmartDevicesMenu\shoes.png" />
+    <None Remove="Images\SmartDevicesMenu\thermostat.png" />
+    <None Remove="Videos\cats_damage.mp4" />
+    <None Remove="Videos\security_cameras.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Animations\robot_assistant.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="robot (1).ico" />
+    <Content Include="Videos\cats_damage.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\security_cameras.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LottieSharp" Version="2.0.1" />
@@ -104,6 +116,18 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\map.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartDevicesMenu\air_conditioner.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartDevicesMenu\lamp_menu.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartDevicesMenu\shoes.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartDevicesMenu\thermostat.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -8,7 +8,7 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.Calendar.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="670" d:DesignWidth="820"
              d:Background="#2A2B42">
     <Grid>
@@ -22,7 +22,7 @@
                     VerticalAlignment="Center">
             <StackPanel Grid.Row="0"
                         Margin="50, 15, 15, 15">
-                <TextBlock Text="SelectedDate"
+                <TextBlock Text="Selected Date"
                            Foreground="{StaticResource TextPrimaryBrush}"
                            FontSize="16" />
                 <DatePicker Background="Transparent"

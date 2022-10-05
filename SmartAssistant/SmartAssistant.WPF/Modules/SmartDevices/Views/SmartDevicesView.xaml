@@ -4,13 +4,211 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              xmlns:local="clr-namespace:SmartAssistant.WPF.Modules.SmartDevices.Views"
+             xmlns:xamlconvertedsvgs="clr-namespace:SmartAssistant.WPF.Images.XamlConvertedSvgs"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1000"
+             d:DesignHeight="670" d:DesignWidth="820"
              d:Background="#2A2B42">
-    <Grid>
-        <TextBlock> smart dev</TextBlock>
+    <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="23" 
+                   HorizontalAlignment="Center" 
+                   Text="Your smart devices"
+                   Foreground="{StaticResource TextPrimaryBrush}"
+                   FontSize="22"
+                   Margin="0,30,0,0" />
+
+        <!-- Lights -->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   Text="Lights"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   FontSize="18"
+                   Margin="0,0,0,0" />
+        
+        <Border Grid.Row="1"
+                Margin="40, 30, 40, 0"
+                Padding="10"
+                BorderThickness="2"
+                Cursor="Hand"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <i:CallMethodAction TargetObject="{Binding}"
+                                        MethodName="NavigateToLights" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <Image 
+                   Source="../../../Images/SmartDevicesMenu/lamp_menu.png"
+                   Stretch="fill" />
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="Black"
+                                  Opacity="0.8"
+                                  BlurRadius="15" />
+            </Border.Effect>
+        </Border>
+
+        <!-- Thermostat -->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Text="Thermostat"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   FontSize="18"
+                   Margin="0,0,0,0" />
+        
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Margin="40, 30, 40, 0"
+                Padding="10,20"
+                BorderThickness="2"
+                Cursor="Hand"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <i:CallMethodAction TargetObject="{Binding}"
+                                        MethodName="NavigateToThermostat" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <Image Source="../../../Images/SmartDevicesMenu/thermostat.png"
+                   Stretch="fill" />
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="Black"
+                                  Opacity="0.8"
+                                  BlurRadius="15" />
+            </Border.Effect>
+        </Border>
+
+        <!-- Air Conditioning -->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                   HorizontalAlignment="Center"
+                   Text="Air Conditioner"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   FontSize="18"
+                   Margin="0,0,0,0" />
+        
+        <Border Grid.Row="1"
+                Grid.Column="2"
+                Margin="40, 30, 40, 0"
+                Padding="10"
+                BorderThickness="2"
+                Cursor="Hand"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <i:CallMethodAction TargetObject="{Binding}"
+                                        MethodName="NavigateToAirConditioner" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <Image Source="../../../Images/SmartDevicesMenu/air_conditioner.png"
+                   Stretch="fill" />
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="Black"
+                                  Opacity="0.8"
+                                  BlurRadius="15" />
+            </Border.Effect>
+        </Border>
+
+        <!-- Smart Shoerack -->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   Text="Smart Shoerack"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   FontSize="18"
+                   Margin="0,10,0,0" />
+        
+        <Border Grid.Row="2"
+                Grid.Column="0"
+                Margin="40, 40, 40, 0"
+                Padding="10"
+                BorderThickness="2"
+                Cursor="Hand"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <i:CallMethodAction TargetObject="{Binding}"
+                                        MethodName="NavigateToSmartShoerack" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <Image Source="../../../Images/SmartDevicesMenu/shoes.png"
+                   Stretch="fill" />
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="Black"
+                                  Opacity="0.8"
+                                  BlurRadius="15" />
+            </Border.Effect>
+        </Border>
+        
+        <!-- Smart Feeder -->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   HorizontalAlignment="Center"
+                   Text="Smart Feeder"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   FontSize="18"
+                   Margin="0,10,0,0" />
+
+        <Border Grid.Row="2"
+                Grid.Column="1"
+                Margin="40, 40, 40, 0"
+                Padding="10"
+                BorderThickness="2"
+                Cursor="Hand"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <i:CallMethodAction TargetObject="{Binding}"
+                                        MethodName="NavigateToSmartFeeder" />
+	            </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <xamlconvertedsvgs:PetFood />
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="Black"
+                                  Opacity="0.8"
+                                  BlurRadius="15" />
+            </Border.Effect>
+        </Border>
+        
     </Grid>
 </UserControl>
