@@ -10,7 +10,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000"
              d:Background="#2A2B42">
-    <Grid>
-        <TextBlock> dashboard </TextBlock>
-    </Grid>
+    <StackPanel xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700, Delay=300}">
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,30,0,0">
+            <TextBlock Text="Welcome "
+                       FontFamily="{StaticResource InterSemiBold}"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource TextPrimaryBrush}"/>
+
+            <TextBlock Text="{Binding Username}"
+                       FontFamily="{StaticResource InterSemiBold}"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource TextPrimaryBrush}" />
+        </StackPanel>
+
+        <TextBlock Text="By using this app you can:"
+                   FontFamily="{StaticResource InterRegular}"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   Margin="0,100,0,20"
+                   Foreground="{StaticResource TextPrimaryBrush}" />
+        <TextBlock Text="1) Make a schedule for each day and enjoy&#x0a; the suggestions that the smart assistant makes&#x0a;2) Control your homes smart devices&#x0a; for a smart lifestyle ;)&#x0a;3) Secure your home with our latest cameras&#x0a; to make sure than no thief gets close&#x0a;to your stuff&#x0a;4) Get a notification when your pets do&#x0a;something... inappropriate"
+                   FontFamily="{StaticResource InterSemiBold}"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                  />
+
+    </StackPanel>
 </UserControl>

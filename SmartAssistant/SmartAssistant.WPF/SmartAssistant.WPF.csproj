@@ -31,6 +31,19 @@
     <None Remove="Images\SmartDevicesMenu\lamp_menu.png" />
     <None Remove="Images\SmartDevicesMenu\shoes.png" />
     <None Remove="Images\SmartDevicesMenu\thermostat.png" />
+    <None Remove="Images\SmartFeeder\bizoux_cat.jpg" />
+    <None Remove="Images\SmartFeeder\cat_food.png" />
+    <None Remove="Images\SmartFeeder\pet_water.png" />
+    <None Remove="Images\SmartFeeder\zizzi_cat.jpg" />
+    <None Remove="Images\SmartShoerack\AthleticShoes\sneakers1.png" />
+    <None Remove="Images\SmartShoerack\AthleticShoes\sneakers2.png" />
+    <None Remove="Images\SmartShoerack\AthleticShoes\sneakers3.png" />
+    <None Remove="Images\SmartShoerack\CasualShoes\casual_shoes1.png" />
+    <None Remove="Images\SmartShoerack\CasualShoes\casual_shoes2.png" />
+    <None Remove="Images\SmartShoerack\CasualShoes\casual_shoes3.png" />
+    <None Remove="Images\SmartShoerack\WorkShoes\work_shoes1.png" />
+    <None Remove="Images\SmartShoerack\WorkShoes\work_shoes2.png" />
+    <None Remove="Images\SmartShoerack\WorkShoes\work_shoes3.png" />
     <None Remove="Videos\cats_damage.mp4" />
     <None Remove="Videos\security_cameras.mp4" />
   </ItemGroup>
@@ -128,6 +141,45 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\SmartDevicesMenu\thermostat.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartFeeder\bizoux_cat.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartFeeder\cat_food.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartFeeder\pet_water.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartFeeder\zizzi_cat.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\AthleticShoes\sneakers1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\AthleticShoes\sneakers2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\AthleticShoes\sneakers3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\CasualShoes\casual_shoes1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\CasualShoes\casual_shoes2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\CasualShoes\casual_shoes3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\WorkShoes\work_shoes1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\WorkShoes\work_shoes2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SmartShoerack\WorkShoes\work_shoes3.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

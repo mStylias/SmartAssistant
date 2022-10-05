@@ -13,6 +13,325 @@
              d:DesignHeight="670"
              d:DesignWidth="820">
     <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="170" />
+        </Grid.RowDefinitions>
 
+        <!-- Smart Shoerack Text -->
+        <TextBlock VerticalAlignment="Center"
+                   Text="Smart Shoerack"
+                   FontFamily="{StaticResource InterSemiBold}"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextPrimaryBrush}" />
+
+        <!-- Status -->
+        <Border Width="190"
+                Height="40"
+                HorizontalAlignment="Right"
+                Margin="0,0,30,0"
+                Background="#313145"
+                CornerRadius="7"
+                BorderThickness="1"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Status: Connected"
+                           FontSize="15"
+                           FontFamily="{StaticResource InterLight}"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Margin="12,0,0,0" />
+
+                <Canvas Width="12"
+                        Height="12"
+                        Margin="17,0,0,0">
+                    <Ellipse Width="12"
+                             Height="12"
+                             Fill="{StaticResource PositiveColorBrush}" />
+                </Canvas>
+            </StackPanel>
+        </Border>
+        
+        <!-- Main Shoerack section -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Recommended pair -->
+            <TextBlock Grid.Column="0"
+                       Text="Recommended shoe&#x0a;pair for today:"
+                       HorizontalAlignment="Center"
+                       FontFamily="{StaticResource InterRegular}"
+                       FontSize="18"
+                       Foreground="{StaticResource TextPrimaryBrush}" />
+
+            <Border Width="150"
+                    Height="130">
+
+                <Border.Background>
+                    <ImageBrush Stretch="Fill"
+                                RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                RenderOptions.EdgeMode="Aliased"
+                                ImageSource="/Images/SmartShoerack/CasualShoes/casual_shoes1.png" />
+                </Border.Background>
+
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"
+                                      Color="Black"
+                                      Opacity="0.7"
+                                      BlurRadius="15" />
+                </Border.Effect>
+            </Border>
+            
+            <!-- Shopping shoes -->
+            <Border Width="2"
+                    Height="370"
+                    CornerRadius="50"
+                    Background="{StaticResource TextSecondaryBrush}"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    Margin="20,0,0,0"/>
+
+            <TextBlock Grid.Column="1"
+                       Text="Recommended shoes for shopping:"
+                       HorizontalAlignment="Center"
+                       FontFamily="{StaticResource InterRegular}"
+                       FontSize="18"
+                       Foreground="{StaticResource TextPrimaryBrush}" />
+            
+            <Grid Grid.Column="1"
+                  Margin="25,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Casual shoes -->
+                <StackPanel Margin="10,30,10,0">
+                    <TextBlock Grid.Column="1"
+                               Text="Casual"
+                               HorizontalAlignment="Center"
+                               FontFamily="{StaticResource InterRegular}"
+                               FontSize="18"
+                               Foreground="{StaticResource TextSecondaryBrush}" />
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/CasualShoes/casual_shoes2.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/CasualShoes/casual_shoes3.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+                </StackPanel>
+                
+                <!-- Work shoes -->
+                <StackPanel Margin="10,30,10,0"
+                            Grid.Column="1">
+                    <TextBlock Text="Work"
+                               HorizontalAlignment="Center"
+                               FontFamily="{StaticResource InterRegular}"
+                               FontSize="18"
+                               Foreground="{StaticResource TextSecondaryBrush}" />
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/WorkShoes/work_shoes1.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/WorkShoes/work_shoes2.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/WorkShoes/work_shoes3.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+                </StackPanel>
+
+                <!-- Athletic shoes -->
+                <StackPanel Margin="10,30,10,0"
+                            Grid.Column="2">
+                    <TextBlock Text="Athletic"
+                               HorizontalAlignment="Center"
+                               FontFamily="{StaticResource InterRegular}"
+                               FontSize="18"
+                               Foreground="{StaticResource TextSecondaryBrush}" />
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/AthleticShoes/sneakers1.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/AthleticShoes/sneakers2.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Border Width="120"
+                            Height="90"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource PrimaryLightBrush}"
+                            Margin="0,10,0,0">
+
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        RenderOptions.EdgeMode="Aliased"
+                                        ImageSource="/Images/SmartShoerack/AthleticShoes/sneakers3.png" />
+                        </Border.Background>
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              Color="Black"
+                                              Opacity="0.7"
+                                              BlurRadius="15" />
+                        </Border.Effect>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        
+        
+        <!-- Navigation buttons -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="50,0,0,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:Button Background="{StaticResource PrimaryLightBrush}"
+                       Content="Back"
+                       Width="100"
+                       Height="40"
+                       Cursor="Hand"
+                       Command="{Binding GoToSmartDevicesMenuCommand}" />
+        </StackPanel>
     </Grid>
 </UserControl>

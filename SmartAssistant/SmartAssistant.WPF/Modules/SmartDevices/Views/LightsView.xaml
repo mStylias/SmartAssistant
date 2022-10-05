@@ -9,10 +9,201 @@
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:smartdevices="clr-namespace:SmartAssistant.WPF.Images.XamlConvertedSvgs.SmartDevices"
              d:Background="#2A2B42"
              d:DesignHeight="670"
              d:DesignWidth="820">
     <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="170" />
+        </Grid.RowDefinitions>
+        
+        <!-- Room dropdown -->
+        <Border HorizontalAlignment="Left"
+                Margin="30,0,0,0">
+            <ComboBox Grid.Row="0"
+                      Width="190"
+                      Height="40"
+                      Foreground="{StaticResource TextPrimaryBrush}">
+                <ComboBoxItem Content="Bedroom"
+                              IsSelected="True" />
+                <ComboBoxItem Content="Bathroom" />
+                <ComboBoxItem Content="Living Room" />
+                <ComboBoxItem Content="Kitchen" />
+            </ComboBox>
+        </Border>
+        
+        <!-- Lights Text -->
+        <TextBlock VerticalAlignment="Center"
+                   Text="Lights"
+                   FontFamily="{StaticResource InterSemiBold}"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextPrimaryBrush}" />
+        
+        <!-- Status -->
+        <Border Width="190" 
+                Height="40" 
+                HorizontalAlignment="Right"
+                Margin="0,0,30,0"
+                Background="#313145"
+                CornerRadius="7"
+                BorderThickness="1"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Status: Connected"
+                           FontSize="15"
+                           FontFamily="{StaticResource InterLight}"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Margin="12,0,0,0"/>
 
+                <Canvas Width="12"
+                        Height="12"
+                        Margin="17,0,0,0">
+                    <Ellipse Width="12"
+                             Height="12"
+                             Fill="{StaticResource PositiveColorBrush}" />
+                </Canvas>
+            </StackPanel>
+        </Border>
+        
+        <!-- Light section -->
+        <smartdevices:LightInactive Grid.Row="1"
+                                    Margin="0,35"
+                                    Visibility="{Binding LampInactiveVisibility}"/>
+
+        <smartdevices:LightActive Grid.Row="1"
+                                  Margin="0,35"
+                                  Visibility="{Binding LampActiveVisibility}"/>
+        
+        <!-- Gradient border -->
+        <Border x:Name="LampShine"
+                Grid.Row="1"
+                Margin="0,-100,0,0"
+                Visibility="{Binding LampActiveVisibility}"
+                Panel.ZIndex="-1">
+            <Border.Background>
+                <RadialGradientBrush>
+                    <GradientStop Offset="0.177"
+                                  Color="{Binding ElementName=ColorPicker, Path=Color}" />
+                    <GradientStop Offset="{Binding ElementName=BrightnessSlider, Path=Value}"
+                                  Color="{StaticResource Primary}" />
+                </RadialGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <!-- Bottom buttons -->
+        <StackPanel Grid.Row="2">
+            <!-- Add material design resources -->
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <materialDesign:BundledTheme BaseTheme="Dark"
+                                                     PrimaryColor="LightBlue"
+                                                     SecondaryColor="Orange" />
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+
+            <!--  Brightness  -->
+            <StackPanel>
+                <Border Width="200"
+                        Height="70"
+                        Background="{StaticResource PrimaryLightBrush}"
+                        CornerRadius="10">
+                    <StackPanel Margin="20,10">
+                        <TextBlock FontSize="13"
+                                   FontFamily="{StaticResource InterMedium}"
+                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                   Text="Brightness"
+                                   TextAlignment="Left" />
+
+                        <Slider x:Name="BrightnessSlider"
+                                Margin="0,8,0,0"
+                                Maximum="1"
+                                Minimum="0.3"
+                                Value="0.3">
+                            <Slider.Foreground>
+                                <SolidColorBrush Color="{Binding ElementName=ColorPicker, Path=Color}" />
+                            </Slider.Foreground>
+                        </Slider>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!--  Color  -->
+            <StackPanel HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Margin="0,15,0,0">
+                <Border Width="200"
+                        Height="70"
+                        Background="{StaticResource PrimaryLightBrush}"
+                        CornerRadius="10">
+                    <StackPanel Margin="10"
+                                Grid.Row="3">
+                        <TextBlock Margin="9,0,0,0"
+                                   FontFamily="{StaticResource InterMedium}"
+                                   FontSize="13"
+                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                   Text="Color"
+                                   TextAlignment="Left" />
+
+                        <materialDesign:ColorPicker x:Name="ColorPicker"
+                                                    Margin="0,0,0,3"
+                                                    Background="Transparent"
+                                                    Color="#FBE547" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Turn on/off button -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,50,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:ToggleSwitch 
+                       Background="{StaticResource SecondaryBrush}"
+                       Content="Toggle"
+                       Width="100"
+                       Height="40"
+                       Cursor="Hand"
+                       IsChecked="{Binding IsToggleChecked}" />
+        </StackPanel>
+
+        <!-- Navigation buttons -->
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="50,0,0,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:Button Background="{StaticResource PrimaryLightBrush}"
+                       Content="Back"
+                       Width="100"
+                       Height="40"
+                       Cursor="Hand"
+                       Command="{Binding GoToSmartDevicesMenuCommand}" />
+        </StackPanel>
     </Grid>
 </UserControl>

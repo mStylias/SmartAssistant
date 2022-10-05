@@ -13,6 +13,141 @@
              d:DesignHeight="670"
              d:DesignWidth="820">
     <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="170" />
+        </Grid.RowDefinitions>
 
+        <!-- Room dropdown -->
+        <Border HorizontalAlignment="Left"
+                Margin="30,0,0,0">
+            <ComboBox Grid.Row="0"
+                      Width="190"
+                      Height="40"
+                      Foreground="{StaticResource TextPrimaryBrush}">
+                <ComboBoxItem Content="Bedroom"
+                              IsSelected="True" />
+                <ComboBoxItem Content="Bathroom" />
+                <ComboBoxItem Content="Living Room" />
+                <ComboBoxItem Content="Kitchen" />
+            </ComboBox>
+        </Border>
+
+        <!-- Temperature Text -->
+        <TextBlock VerticalAlignment="Center"
+                   Text="Thermostat"
+                   FontFamily="{StaticResource InterSemiBold}"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextPrimaryBrush}" />
+
+        <!-- Status -->
+        <Border Width="190"
+                Height="40"
+                HorizontalAlignment="Right"
+                Margin="0,0,30,0"
+                Background="#313145"
+                CornerRadius="7"
+                BorderThickness="1"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Status: Connected"
+                           FontSize="15"
+                           FontFamily="{StaticResource InterLight}"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Margin="12,0,0,0" />
+
+                <Canvas Width="12"
+                        Height="12"
+                        Margin="17,0,0,0">
+                    <Ellipse Width="12"
+                             Height="12"
+                             Fill="{StaticResource PositiveColorBrush}" />
+                </Canvas>
+            </StackPanel>
+        </Border>
+        
+        <!-- Main thermostat section -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <TextBlock VerticalAlignment="Center"
+                       Text="Temperature"
+                       FontFamily="{StaticResource InterRegular}"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource TextSecondaryBrush}" />
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,10,0,0">
+                <TextBlock Text="{Binding ElementName=TemperatureSlider, Path=Value}"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}" />
+                <TextBlock Text="°C"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}" />
+            </StackPanel>
+            
+
+            <Slider x:Name="TemperatureSlider" 
+                    HorizontalAlignment="Center" 
+                    Width="200"
+                    Minimum="10"
+                    Maximum="30"
+                    Value="15"
+                    IsSnapToTickEnabled="True"
+                    TickFrequency="1"
+                    Margin="0,20,0,0"
+                    IsEnabled="{Binding ElementName=TemperatureToggle, Path=IsChecked}"/>
+        </StackPanel>
+       
+
+        <!-- Turn on/off button -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,50,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:ToggleSwitch x:Name="TemperatureToggle" Background="{StaticResource SecondaryBrush}"
+                             Content="Toggle"
+                             Width="100"
+                             Height="40"
+                             Cursor="Hand"
+                             IsChecked="{Binding IsToggleChecked}" />
+        </StackPanel>
+
+        <!-- Navigation button -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="50,0,0,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:Button Background="{StaticResource PrimaryLightBrush}"
+                       Content="Back"
+                       Width="100"
+                       Height="40"
+                       Cursor="Hand"
+                       Command="{Binding GoToSmartDevicesMenuCommand}" />
+        </StackPanel>
     </Grid>
 </UserControl>

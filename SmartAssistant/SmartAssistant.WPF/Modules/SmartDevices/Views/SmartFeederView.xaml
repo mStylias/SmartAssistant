@@ -13,6 +13,325 @@
              d:DesignHeight="670"
              d:DesignWidth="820">
     <Grid xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn}, Duration=700}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="170" />
+        </Grid.RowDefinitions>
 
+        <!-- Temperature Text -->
+        <TextBlock VerticalAlignment="Center"
+                   Text="Smart Feeder"
+                   FontFamily="{StaticResource InterSemiBold}"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextPrimaryBrush}" />
+
+        <!-- Status -->
+        <Border Width="190"
+                Height="40"
+                HorizontalAlignment="Right"
+                Margin="0,0,30,0"
+                Background="#313145"
+                CornerRadius="7"
+                BorderThickness="1"
+                BorderBrush="{StaticResource PrimaryLightBrush}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Status: Connected"
+                           FontSize="15"
+                           FontFamily="{StaticResource InterLight}"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Margin="12,0,0,0" />
+
+                <Canvas Width="12"
+                        Height="12"
+                        Margin="17,0,0,0">
+                    <Ellipse Width="12"
+                             Height="12"
+                             Fill="{StaticResource PositiveColorBrush}" />
+                </Canvas>
+            </StackPanel>
+        </Border>
+
+        
+        
+        <!-- Main smart feeder section -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" 
+                        Margin="38,20,0,0"
+                        HorizontalAlignment="Left">
+                <!-- Cat bizoux -->
+                <TextBlock VerticalAlignment="Center"
+                           Text="Bizoux"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="16"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}" />
+
+                <Border Width="130"
+                        Height="130"
+                        CornerRadius="70"
+                        Cursor="Hand"
+                        Margin="0,15,0,0"
+                        x:Name="BorderBizoux">
+
+                    <Border.Background>
+                        <ImageBrush Stretch="UniformToFill"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                    RenderOptions.EdgeMode="Aliased"
+                                    ImageSource="/Images/SmartFeeder/bizoux_cat.jpg" />
+                    </Border.Background>
+
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.7"
+                                          BlurRadius="15" />
+                    </Border.Effect>
+                </Border>
+
+                <!-- Cat Zizzi -->
+                <TextBlock VerticalAlignment="Center"
+                           Text="Zizzi"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="16"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Margin="0,20,0,0"/>
+
+                <Border Width="130"
+                        Height="130"
+                        CornerRadius="70"
+                        Cursor="Hand"
+                        Margin="0,15,0,0"
+                        x:Name="BorderZizzi">
+
+                    <Border.Background>
+                        <ImageBrush Stretch="UniformToFill"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                    RenderOptions.EdgeMode="Aliased"
+                                    ImageSource="/Images/SmartFeeder/zizzi_cat.jpg" />
+                    </Border.Background>
+
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.7"
+                                          BlurRadius="15" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel HorizontalAlignment="Right"
+                        Margin="0,0,50,0">
+                <!-- Bizoux hunger and thirst -->
+                <!-- Hunger -->
+                <TextBlock Text="Hunger"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextSecondaryBrush}" 
+                           Margin="0,64,0,0"/>
+
+                <Slider x:Name="BizouxHungerSlider"
+                        HorizontalAlignment="Center"
+                        Width="150"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding BizouxHunger}"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        Margin="0,3,0,0" />
+                
+                <!-- Thirst -->
+                <TextBlock Text="Thirst"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="0,10,0,0" />
+
+                <Slider x:Name="BizouxThirstSlider"
+                        HorizontalAlignment="Center"
+                        Width="150"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding BizouxThirst}"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        Margin="0,3,0,0" />
+
+
+                <!-- Zizzi hunger and thirst -->
+                <!-- Hunger -->
+                <TextBlock Text="Hunger"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="0,90,0,0" />
+
+                <Slider x:Name="ZizziHungerSlider"
+                        HorizontalAlignment="Center"
+                        Width="150"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding ZizziHunger}"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        Margin="0,3,0,0" />
+
+                <!-- Thirst -->
+                <TextBlock Text="Thirst"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="0,10,0,0" />
+
+                <Slider x:Name="ZizziThirstSlider"
+                        HorizontalAlignment="Center"
+                        Width="150"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding ZizziThirst}"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        Margin="0,3,0,0" />
+
+            </StackPanel>
+            
+            
+            
+            <!-- Food and water containers -->
+            <StackPanel Grid.Column="1"
+                        Margin="38,20,0,0"
+                        HorizontalAlignment="Left">
+                <!-- Cat bizoux -->
+                <TextBlock VerticalAlignment="Center"
+                           Text="Food"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="16"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}" />
+
+                <Border Width="130"
+                        Height="130"
+                        CornerRadius="70"
+                        Cursor="Hand"
+                        Margin="0,15,0,0">
+
+                    <Border.Background>
+                        <ImageBrush Stretch="UniformToFill"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                    RenderOptions.EdgeMode="Aliased"
+                                    ImageSource="/Images/SmartFeeder/cat_food.png" />
+                    </Border.Background>
+
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.7"
+                                          BlurRadius="15" />
+                    </Border.Effect>
+                </Border>
+
+                <!-- Cat Zizzi -->
+                <TextBlock VerticalAlignment="Center"
+                           Text="Water"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="16"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Margin="0,20,0,0" />
+
+                <Border Width="130"
+                        Height="130"
+                        CornerRadius="70"
+                        Cursor="Hand"
+                        Margin="0,15,0,0">
+
+                    <Border.Background>
+                        <ImageBrush Stretch="UniformToFill"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                    RenderOptions.EdgeMode="Aliased"
+                                    ImageSource="/Images/SmartFeeder/pet_water.png" />
+                    </Border.Background>
+
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.7"
+                                          BlurRadius="15" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Right"
+                        Grid.Column="1"
+                        Margin="0,0,50,0">
+                <!-- Pet food quantity -->
+                <TextBlock Text="Quantity"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="0,100,0,0" />
+
+                <ProgressBar HorizontalAlignment="Center"
+                        Width="150"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding FoodQuantity}"
+                        Margin="0,3,0,0" />
+
+                <!-- Water -->
+                <!-- Quantity -->
+                <TextBlock Text="Quantity"
+                           FontFamily="{StaticResource InterRegular}"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="0,140,0,0" />
+
+                <ProgressBar HorizontalAlignment="Center"
+                        Width="150"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="{Binding WaterQuantity}"
+                        Margin="0,3,0,0" />
+            </StackPanel>
+        </Grid>
+
+        
+        
+        
+        <!-- Navigation button -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="50,0,0,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:Button Background="{StaticResource PrimaryLightBrush}"
+                       Content="Back"
+                       Width="100"
+                       Height="40"
+                       Cursor="Hand"
+                       Command="{Binding GoToSmartDevicesMenuCommand}" />
+        </StackPanel>
     </Grid>
 </UserControl>
