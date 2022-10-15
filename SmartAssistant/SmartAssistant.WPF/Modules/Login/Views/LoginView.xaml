@@ -26,7 +26,7 @@
         
         <TextBlock Foreground="{StaticResource TextPrimaryBrush}"
                    FontSize="24"
-                   Text="Hello! &#x0a;I am Tim, your personal smart assistant"></TextBlock>
+                   Text="Hello! &#x0a;I am Eve, your personal smart assistant!"></TextBlock>
 
         <lottie:LottieAnimationView Width="200"
                                     Height="150"

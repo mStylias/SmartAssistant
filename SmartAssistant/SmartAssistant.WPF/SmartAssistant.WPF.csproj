@@ -183,4 +183,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Help\" />
+  </ItemGroup>
 </Project>

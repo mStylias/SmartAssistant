@@ -1,6 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Regions;
 using SmartAssistant.Data.Models.Calendar;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,7 +12,14 @@ namespace SmartAssistant.WPF.Modules.Calendar.ViewModels;
 
 public class FilledCalendarViewModel : BindableBase, INavigationAware
 {
-	private Visibility _carQuestionsVisibility = Visibility.Collapsed;
+    private Visibility _successfullyOrderedCoffeeVisibility = Visibility.Collapsed;
+    public Visibility SuccessfullyOrderedCoffeeVisibility
+    {
+        get { return _successfullyOrderedCoffeeVisibility; }
+        set { SetProperty(ref _successfullyOrderedCoffeeVisibility, value); }
+    }
+
+    private Visibility _carQuestionsVisibility = Visibility.Collapsed;
 	public Visibility CarQuestionsVisibility
     {
 		get { return _carQuestionsVisibility; }
@@ -24,10 +33,20 @@ public class FilledCalendarViewModel : BindableBase, INavigationAware
 		set { SetProperty(ref _dayActivities, value); }
 	}
 
-	public FilledCalendarViewModel()
-	{
+	public DelegateCommand BuyCoffeeCommand { get; private set; }
 
-	}
+
+    public FilledCalendarViewModel()
+	{
+		BuyCoffeeCommand = new DelegateCommand(ShowSuccessMessage);
+
+    }
+
+	private void ShowSuccessMessage()
+	{
+		SuccessfullyOrderedCoffeeVisibility = Visibility.Visible;
+
+    }
 
 	public bool IsNavigationTarget(NavigationContext navigationContext)
 	{

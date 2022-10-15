@@ -24,12 +24,21 @@ public class MainRegionModule : IModule
         {
             _regionManager.RequestNavigate(RegionNames.MainWindowContentRegion, nameof(MainRegionView));
             _regionManager.RequestNavigate(RegionNames.MainContentRegion, "DashboardView");
-        }
-            
+        }     
     }
 
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
         containerRegistry.RegisterForNavigation<MainRegionView>();
+
+        containerRegistry.RegisterForNavigation<LoginHelpView>();
+        containerRegistry.RegisterForNavigation<CreateCalendarHelpView>();
+        containerRegistry.RegisterForNavigation<ViewCalendarHelpView>();
+        containerRegistry.RegisterForNavigation<LightsHelpView>();
+        containerRegistry.RegisterForNavigation<ThermostatHelpView>();
+        containerRegistry.RegisterForNavigation<AirConditionerHelpView>();
+        containerRegistry.RegisterForNavigation<SmartFeederHelpView>();
+        containerRegistry.RegisterForNavigation<SmartShoerackHelpView>();
+        containerRegistry.RegisterForNavigation<SecurityCamerasHelpView>();
     }
 }

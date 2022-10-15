@@ -3,12 +3,11 @@ using Prism.Mvvm;
 using Prism.Regions;
 using SmartAssistant.Services.UserAccount;
 using SmartAssistant.WPF.Core;
+using SmartAssistant.WPF.Modules.MainRegion.Views;
 using SmartAssistant.WPF.Modules.Security.Views;
 using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Threading;
-using Wpf.Ui.Controls;
 
 namespace SmartAssistant.WPF.Modules.MainRegion.ViewModels;
 
@@ -31,8 +30,9 @@ public class MainRegionViewModel : BindableBase, INavigationAware
 
     public DelegateCommand HideNotificationEllipseCommand { get; private set; }
     public DelegateCommand OpenNotificationCommand { get; private set; }
-
     public DelegateCommand LogoutUserCommand { get; private set; }
+
+    public DelegateCommand ShowHelpWindowCommand { get; private set; }
 
     public MainRegionViewModel(IRegionManager regionManager, IUserAuthRepository userAuthRepository)
     {
@@ -43,8 +43,9 @@ public class MainRegionViewModel : BindableBase, INavigationAware
 
         HideNotificationEllipseCommand = new DelegateCommand(HideProfileNotification);
         OpenNotificationCommand = new DelegateCommand(OpenNotification);
-
         LogoutUserCommand = new DelegateCommand(LogoutUser);
+
+        ShowHelpWindowCommand = new DelegateCommand(ShowHelpWindow);
 
         DispatcherTimer notificationPopupTimer = new DispatcherTimer();
         notificationPopupTimer.Interval = new TimeSpan(0, 1, 0);
@@ -53,6 +54,12 @@ public class MainRegionViewModel : BindableBase, INavigationAware
 
         _regionManager = regionManager;
         _userAuthRepository = userAuthRepository;
+    }
+
+    private void ShowHelpWindow()
+    {
+        HelpWindow helpWindow = new HelpWindow();
+        helpWindow.ShowDialog();
     }
 
     private void OpenNotification()

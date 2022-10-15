@@ -9,7 +9,7 @@ namespace SmartAssistant.WPF.Modules.SmartDevices.ViewModels;
 public class SmartShoerackViewModel : BindableBase, INavigationAware
 {
     private readonly IRegionManager _regionManager;
-    private const string SHOES_STORE_URL = "https://www.skroutz.gr/c/3363/sneakers.html?from=catspan&o=%CF%80%CE%B1%CF%80%CE%BF%CF%8D%CF%84%CF%83%CE%B9%CE%B1";
+    private const string SHOES_STORE_URL = "https://www.skroutz.gr/search?keyphrase=%CF%80%CE%B1%CF%80%CE%BF%CF%85%CF%84%CF%83%CE%B9%CE%B1";
 
     public DelegateCommand GoToSmartDevicesMenuCommand { get; private set; }
     public DelegateCommand GoToBuyShoesWebsiteCommand { get; private set; }

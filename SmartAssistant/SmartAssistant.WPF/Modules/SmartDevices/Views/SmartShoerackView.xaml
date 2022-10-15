@@ -98,7 +98,7 @@
                     Margin="20,0,0,0"/>
 
             <TextBlock Grid.Column="1"
-                       Text="Recommended shoes for shopping:"
+                       Text="Currently available shoes"
                        HorizontalAlignment="Center"
                        FontFamily="{StaticResource InterRegular}"
                        FontSize="18"
@@ -313,7 +313,30 @@
         </Grid>
         
         
-        <!-- Navigation buttons -->
+        <!-- Buy shoes button-->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,50,0">
+            <StackPanel.Resources>
+                <Color x:Key="ControlFillColorTertiary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondary">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorTertiaryBrush">#3c3c5e</Color>
+                <Color x:Key="ControlFillColorSecondaryBrush">#3c3c5e</Color>
+            </StackPanel.Resources>
+
+            <ui:Button Background="{StaticResource PrimaryLightBrush}"
+                       Content="Buy shoes"
+                       Width="100"
+                       Height="40"
+                       Cursor="Hand"
+                       Command="{Binding GoToBuyShoesWebsiteCommand}" />
+
+        </StackPanel>
+
+
+        <!-- Navigation button -->
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
@@ -332,6 +355,7 @@
                        Height="40"
                        Cursor="Hand"
                        Command="{Binding GoToSmartDevicesMenuCommand}" />
+            
         </StackPanel>
     </Grid>
 </UserControl>

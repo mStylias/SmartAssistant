@@ -1,6 +1,7 @@
 ﻿using SmartAssistant.Data.Models.Calendar;
 
 namespace SmartAssistant.Services.Calendar;
+
 public interface ICalendarRepository
 {
     Task<Dictionary<string, SortedSet<CalendarActivity>>> GetAllCalendarActivitiesAsync();

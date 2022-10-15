@@ -1,9 +1,7 @@
 ﻿using Prism.Commands;
-using Prism.Ioc;
 using Prism.Mvvm;
 using Prism.Regions;
 using SmartAssistant.WPF.Core;
-using System;
 using System.Diagnostics;
 
 namespace SmartAssistant.WPF.Modules.Calendar.ViewModels;
