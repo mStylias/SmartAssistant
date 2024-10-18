@@ -108,7 +108,7 @@ public class MainRegionViewModel : BindableBase, INavigationAware
 
     public void OnNavigatedTo(NavigationContext navigationContext)
     {
-
+        
     }
 
     public bool IsNavigationTarget(NavigationContext navigationContext)
